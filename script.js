@@ -11,11 +11,22 @@ const validateInput = () =>{
 const handleAddTask = () =>{
     
     const inputIsValid = validateInput();
+    
+    console.log(inputIsValid);
+
     if (!inputIsValid){
-        return inputElement.classList.add('error');
+        return inputElement.classList.add("error");
     }
-}
+};
+const handleInputChange = () =>{
+    const inputIsValid = validateInput();
+    console.log(inputIsValid);
+    if(inputIsValid){
+        return inputElement.classList.remove("error");
+    }
+};
 
 
 //Eventos
-addTaskBtn.addEventListener("click", handleAddTask())
+addTaskBtn.addEventListener("click", () => handleAddTask());
+inputElement.addEventListener("change", () => handleInputChange());
